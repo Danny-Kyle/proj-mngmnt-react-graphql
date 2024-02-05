@@ -1,6 +1,6 @@
 const {projects, clients} = require ('../SampleData.js');
 
-const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLFloat, GraphQLSchema } = require ('graphql')
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLFloat, GraphQLSchema, GraphQLInt } = require ('graphql')
 
 //Client Type DEfinition
 const ClientType = new GraphQLObjectType({
