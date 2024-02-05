@@ -132,3 +132,5 @@ const clients = [
     phone: 1234567890.0,
   },
 ];
+
+module.exports = {projects, clients};
