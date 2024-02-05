@@ -1,6 +1,6 @@
 const {projects, clients} = require ('../SampleData.js');
 
-const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLFloat, GraphQLSchema, GraphQLList } = require ('graphql')
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLFloat, GraphQLSchema, GraphQLList, GraphQLBoolean } = require ('graphql')
 
 //Client Type DEfinition
 const ClientType = new GraphQLObjectType({
@@ -10,6 +10,18 @@ const ClientType = new GraphQLObjectType({
         name: {type: GraphQLString},
         email: {type: GraphQLString},
         phone: {type: GraphQLFloat}
+    })
+});
+
+//Project Type DEfinition
+const ProjectType = new GraphQLObjectType({
+    name: 'Project',
+    fields: () => ({
+        id: {type: GraphQLID},
+        clientID: {type: GraphQLString},
+        name: {type: GraphQLString},
+        description: {type: GraphQLString},
+        status: {type: GraphQLBoolean}
     })
 });
 
