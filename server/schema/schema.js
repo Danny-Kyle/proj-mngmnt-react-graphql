@@ -21,7 +21,7 @@ const ProjectType = new GraphQLObjectType({
         // clientID: {type: GraphQLString},
         name: {type: GraphQLString},
         description: {type: GraphQLString},
-        status: {type: GraphQLBoolean},
+        status: {type: GraphQLString},
         client: {
             type: ClientType,
             resolve(parent, args){
