@@ -10,7 +10,7 @@ const ClientType = new GraphQLObjectType({
         id: {type: GraphQLID},
         name: {type: GraphQLString},
         email: {type: GraphQLString},
-        phone: {type: GraphQLFloat}
+        phone: {type: GraphQLString}
     })
 });
 
@@ -73,7 +73,7 @@ const mutation = new GraphQLObjectType({
             args: {
                 name: {type: GraphQLNonNull(GraphQLString)},
                 email: {type: GraphQLNonNull(GraphQLString)},
-                phone: {type: GraphQLNonNull(GraphQLFloat)},
+                phone: {type: GraphQLNonNull(GraphQLString)},
             },
             resolve(parent, args){
                 // getting the properties of the mutation from the arguments created above
