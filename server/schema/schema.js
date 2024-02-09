@@ -1,7 +1,7 @@
 const Project = require("../models/Project")
 const Client = require("../models/Client")
 
-const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLFloat, GraphQLSchema, GraphQLList, GraphQLBoolean, GraphQLNonNull } = require ('graphql')
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLSchema, GraphQLList, GraphQLBoolean, GraphQLNonNull } = require ('graphql')
 
 //Client Type DEfinition
 const ClientType = new GraphQLObjectType({
