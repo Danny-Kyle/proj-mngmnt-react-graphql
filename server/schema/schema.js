@@ -1,9 +1,7 @@
-const {projects, clients} = require ('../SampleData.js');
-
 const Project = require("../models/Project")
 const Client = require("../models/Client")
 
-const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLFloat, GraphQLSchema, GraphQLList, GraphQLBoolean } = require ('graphql')
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLFloat, GraphQLSchema, GraphQLList, GraphQLBoolean, GraphQLNonNull } = require ('graphql')
 
 //Client Type DEfinition
 const ClientType = new GraphQLObjectType({
@@ -28,7 +26,7 @@ const ProjectType = new GraphQLObjectType({
         client: {
             type: ClientType,
             resolve(parent, args){
-                return clients.find((client) => "C"+client.id === parent.clientID);
+                return Client.findById(parent.clientID);
             }
         }
     })
@@ -66,6 +64,22 @@ const RootQuery = new GraphQLObjectType({
     }
 })
 
+//Mutations
+const mutation = new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+        addClient: {
+            type: ClientType,
+            args: {
+                name: {type: GraphQLNonNull(GraphQLString)},
+                email: {type: GraphQLNonNull(GraphQLString)},
+                phone: {type: GraphQLNonNull(GraphQLFloat)},
+            }
+        }
+    }
+})
+
 module.exports = new GraphQLSchema({
-    query: RootQuery
+    query: RootQuery,
+    mutation
 })
