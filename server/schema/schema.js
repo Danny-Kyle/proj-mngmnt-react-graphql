@@ -74,6 +74,17 @@ const mutation = new GraphQLObjectType({
                 name: {type: GraphQLNonNull(GraphQLString)},
                 email: {type: GraphQLNonNull(GraphQLString)},
                 phone: {type: GraphQLNonNull(GraphQLFloat)},
+            },
+            resolve(parent, args){
+                // getting the properties of the mutation from the arguments created above
+                const client = new Client({
+                    name: args.name,
+                    email: args.email,
+                    phone: args.phone
+                });
+                // returning variable above and saving it
+                return client.save();
+                //easier to do this than to pass in the fields through the create method Client.create("fields").save
             }
         }
     }
