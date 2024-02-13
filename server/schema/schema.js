@@ -111,7 +111,7 @@ const mutation = new GraphQLObjectType({
                             'new': {value: 'Not Started'},
                             'progress': {value: 'In Progress'},
                             'completed': {value: 'Completed'},
-                        }
+                        },
                     }),
                     defaultValue: 'Not Started',
                 },
@@ -125,9 +125,9 @@ const mutation = new GraphQLObjectType({
                     clientID: args.clientID,
                 });
                 return project.save();
-            }
-        }
-    }
+            },
+        },
+    },
 })
 
 module.exports = new GraphQLSchema({
