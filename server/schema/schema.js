@@ -1,7 +1,7 @@
 const Project = require("../models/Project")
 const Client = require("../models/Client")
 
-const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLSchema, GraphQLList, GraphQLBoolean, GraphQLNonNull, GraphQLEnumType } = require ('graphql')
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLSchema, GraphQLList, GraphQLNonNull, GraphQLEnumType } = require ('graphql')
 
 //Client Type DEfinition
 const ClientType = new GraphQLObjectType({
@@ -112,8 +112,10 @@ const mutation = new GraphQLObjectType({
                             'progress': {value: 'In Progress'},
                             'completed': {value: 'Completed'},
                         }
-                    })
-                }
+                    }),
+                    defaultValue: 'Not Started',
+                },
+                clientID: {type: GraphQLNonNull(GraphQLID)},
             }
         }
     }
