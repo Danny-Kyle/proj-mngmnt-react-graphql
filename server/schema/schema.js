@@ -131,12 +131,31 @@ const mutation = new GraphQLObjectType({
         deleteProject: {
             type: ProjectType,
             args: {
-                id: {type: GraphQLNonNull(GraphQLString)}
+                id: {type: GraphQLNonNull(GraphQLID)}
             },
             resolve(parent, args){
                 return Project.findByIdAndDelete(args.id);
             },
         },
+        //update a project
+        updateProjct: {
+            type: ProjectType,
+            args: {
+                id: {type: GraphQLNonNull(GraphQLID)},
+                name: {type: GraphQLString},
+                description: {type: GraphQLString},
+                status: {
+                    type: new GraphQLEnumType({
+                        name: 'UpdateProjectStatus',
+                        values: {
+                            'new': {value: 'Not Started'},
+                            'progress': {value: 'In Progress'},
+                            'completed': {value: 'Completed'},
+                        },
+                    }),
+                },
+            }
+        }
     },
 })
 
