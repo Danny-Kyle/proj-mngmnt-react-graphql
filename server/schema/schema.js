@@ -154,6 +154,19 @@ const mutation = new GraphQLObjectType({
                         },
                     }),
                 },
+            },
+            resolve(parent, args){
+                return Project.findByIdAndUpdate(
+                    args.id,
+                    {
+                        $set: {
+                            name: args.name,
+                            description: args.description,
+                            status: args.status
+                        }
+                    }
+                    {new: true}
+                )
             }
         }
     },
