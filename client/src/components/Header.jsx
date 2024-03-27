@@ -1,4 +1,4 @@
-import logo from ""
+// import logo from ""
 
 export default function Header() {
   return (
@@ -6,8 +6,8 @@ export default function Header() {
         <div className="container">
             <a className="navbar-brand" href="/">
                 <div className="d-flex">
-                    <img src={logo} alt='logo' className="mr-2"/>
-                    <div>Project Management App</div>
+                    {/* <img src={logo} alt='logo' className="mr-2"/> */}
+                    <h2>Proj Mgmt App</h2>
                 </div>
             </a>
         </div>
