@@ -19,7 +19,10 @@ export default function AddClientModal() {
         e.preventDefault();
         setPhone(e.target.value)
     }
-    console.log(name)
+    function handleSubmit(e){
+        e.preventDefault();
+        console.log(name, email, phone)
+    }
   return (
     <>
 <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -38,19 +41,22 @@ export default function AddClientModal() {
       </div>
 
       <div className="modal-body">
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label className="form-label">Full Name</label>
                 <input type="text" className="form-control" id='name' value={name} onChange={handleNameChange}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Email Address</label>
-                <input type="text" className="form-control" id='email' value={email} onChange={handleEmailChange}/>
+                <input type="email" className="form-control" id='email' value={email} onChange={handleEmailChange}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Phone Number</label>
                 <input type="text" className="form-control" id='phone' value={phone} onChange={handlePhoneChange}/>
             </div>
+            <div className='modal-footer'>
+        <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        </div>
         </form>
       </div>
 
