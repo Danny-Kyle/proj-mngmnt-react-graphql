@@ -3,6 +3,23 @@ import { FaUser } from 'react-icons/fa'
 import {useMutation} from "@apollo/client"
 
 export default function AddClientModal() {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+
+    const handleNameChange = (e) => {
+        e.preventDefault();
+        setName(e.target.value)
+    }
+    function handleEmailChange(e){
+        e.preventDefault();
+        setEmail(e.target.value)
+    }
+    function handlePhoneChange(e){
+        e.preventDefault();
+        setPhone(e.target.value)
+    }
+    console.log(name)
   return (
     <>
 <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -24,15 +41,15 @@ export default function AddClientModal() {
         <form>
             <div className="mb-3">
                 <label className="form-label">Full Name</label>
-                <input type="text" className="form-control" id='name'/>
+                <input type="text" className="form-control" id='name' value={name} onChange={handleNameChange}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Email Address</label>
-                <input type="text" className="form-control" id='email'/>
+                <input type="text" className="form-control" id='email' value={email} onChange={handleEmailChange}/>
             </div>
             <div className="mb-3">
                 <label className="form-label">Phone Number</label>
-                <input type="text" className="form-control" id='phone'/>
+                <input type="text" className="form-control" id='phone' value={phone} onChange={handlePhoneChange}/>
             </div>
         </form>
       </div>
